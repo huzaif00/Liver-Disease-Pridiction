@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: black;
+            color: red;
+            height: 80px;
+
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+
+        }
+
+        .container {
+            padding: 25px;
+            padding-left: 40px;
+            font-weight: 500;
+            font-size: 2.1vw;
+            font-style: italic;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        main {
+            min-height: calc(100vh - 80px - 30px);
+            
+            background-repeat: no-repeat;
+            height: 100%;
+            background-image: url("{{url_for('static',filename='img/liver_human.png')}}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-color: bisque;
+            text-align: center;
+
+        }
+
+        footer {
+            height: 14px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+
+        }
+
+        .ml-container {
+
+            padding: 25px;
+            line-height: 27px;
+        }
+        .logo{
+            width: 68px;
+            padding-top: 3px;
+            padding-right: 63px;
+        
+        }
+        .box{
+            display: flex;
+            justify-content: space-between;
+        }
+        .cont0{
+            display:flex;
+
+        }
+        .cont1{
+            width: 50%;
+            padding-top: 16px;
+        }
+        .cont2{
+            width: 50%;
+            padding-top: 42px;
+        }
+        .but{
+            display: flex;
+            justify-content: center;
+        }
+        .res{
+            padding-left: 53px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="box">
+        <div class="container">
+            <p>Liver Disease Prediction</p>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img class="logo" src="{{url_for('static',filename='img/logo.png')}}" alt="liver logo"></a>
+        </div>
+        </div>
+    </header>
+    <main>
+        
+        <div class="ml-container">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <div class="f">
+                    <div class="cont0">
+                    <div class="cont1">
+                    <br>
+                    <h2>Patient Detail</h2>
+                    <br>
+                    <h3>Name</h3>
+                    <input type="text" id="zero" name="Name" placeholder="Jhon" required="required">
+                    <br>
+                    <h3>Age</h3>
+                    <input id="first" name="Age" placeholder="ex-38" required="required" maxlength="2">
+                    <br>
+                    <h3>Gender</h3>
+                    <input id="second" name="Gender" placeholder="Male = 1, Female=0"
+                        required="required">
+                    <br>
+                    <h3>Phone Number</h3>
+                    <input type="tel" id="tthree" name="Phone" placeholder="8844156698" required="required" maxlength="10">
+                    <br>
+                </div><div class="cont2">
+                    <h2>Patient Test Parameters</h2>
+                    <br>
+                    <h3>Total Bilirubin</h3>
+                    <input id="third" name="Total_Bilirubin" placeholder="Total Bilirubin" required="required">
+                    <br>
+                    <h3>Direct Bilirubin</h3>
+                    <input id="thirde" name="Direct_Bilirubin" placeholder="Direct Bilirubin" required="required">
+                    <br>
+                    <h3>Alkaline Phosphotase</h3>
+                    <input id="fourth" name="Alkaline_Phosphotase" placeholder="Alkaline Phosphotase"
+                        required="required">
+                    <br>
+                    <h3>Alamine Aminotransferase</h3>
+                    <input id="fifth" name="Alamine_Aminotransferase" placeholder="Alamine Aminotransferase"
+                        required="required">
+                    <br>
+                    <h3>Aspartate Aminotransferase</h3>
+                    <input id="sixth" name="Aspartate_Aminotransferase" placeholder="Aspartate Aminotransferase"
+                        required="required">
+                    <br>
+                    <h3>Total Protiens</h3>
+                    <input id="seventh" name="Total_Protiens" placeholder="Total Protiens" required="required">
+                    <br>
+                    <h3>Albumin</h3>
+                    <input id="eight" name="Albumin" placeholder="Albumin" required="required">
+                    <br>
+                    <h3>Albumin and Globulin Ratio</h3>
+                    <input id="ninth" name="Albumin_and_Globulin_Ratio" placeholder="Albumin and Globulin Ratio"
+                        required="required">
+                    </div>
+                </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="but">
+                    <div class="sub">
+                    <button id="sub" type="submit ">Submit</button>
+                </div><div class="res">
+                    <button id="reset" type="reset">Reset</button>
+                </div>
+            </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p class='footer-description'>© Copyright MOHD HUZAIF 2022. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

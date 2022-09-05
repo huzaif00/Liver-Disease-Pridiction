@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Result</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: black;
+            color: red;
+            height: 80px;
+
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+
+        }
+
+        .container {
+            padding: 25px;
+            padding-left: 40px;
+            font-weight: 500;
+            font-size: 2.1vw;
+            font-style: italic;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        main {
+            min-height: calc(100vh - 80px - 30px);
+            /*background-image: url("liver-human-body-organ-anatomy-homo-sapiens-others-1f08eb6cb1d2102d1ea411fd6613f3fc.png");
+            background-repeat: no-repeat;
+            height: 100%;
+*/
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-color: bisque;
+            
+
+        }
+
+        footer {
+            height: 14px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+
+        }
+
+       
+        .logo{
+            width: 68px;
+            padding-top: 3px;
+            padding-right: 63px;
+        
+        }
+        .box{
+            display: flex;
+            justify-content: space-between;
+        }
+     .gif1{
+         width:60%;
+     }
+     .resultclass{
+         color: red;
+         font-size: 30px;
+         padding-top: 65px;
+    padding-left: 50px;
+}
+        
+     
+     .resultclas{
+         color: red;
+         font-size: 25px;
+         padding-left: 20px;
+         padding-top: 20px;
+
+        
+     }
+     .gif2{
+        width: 60%;
+        padding-top: 20px;
+        padding-left: 25%;
+}
+     
+.gif{
+        width: 60%;
+        padding-top: 20px;
+        padding-left: 25%;
+}
+     .head{
+         text-align: center;
+         font-size: 40px;
+         color: indigo;
+     }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="box">
+        <div class="container">
+            <p>Liver Disease Prediction</p>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img class="logo" src="{{url_for('static',filename='img/logo.png')}}" alt="liver logo"></a>
+        </div>
+        </div>
+    </header>
+    <main>
+        
+        <p class="head">Patient Report</p>
+        <div class="resultclas">
+        <p>Name : {{name}}</p>
+        <p>Age : {{age}}</p>
+        <p>Gender : {{sex}}</p></div>
+        {%if pred==0%}
+            <div class="resultclass">{{resultvalue}}</div>
+            <br><br><br>
+            <img class="gif" src="{{ url_for('static', filename='img/weak.png')}}" alt="LIVER Image">
+        {%elif pred==1%}
+            <div class="resultclass">{{resultvalue}}</div>
+            <br><br><br>
+            <img class="gif2" src="{{ url_for('static', filename='img/healthy.png')}}" alt="LIVER Image">
+        {%endif%}
+    </main>
+    <footer>
+        <p class='footer-description'>© Copyright MOHD HUZAIF 2022. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
